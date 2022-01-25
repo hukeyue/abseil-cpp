@@ -412,6 +412,7 @@ set(ABSL_INTERNAL_DLL_FILES
   "synchronization/internal/waiter_base.h"
   "synchronization/internal/win32_waiter.cc"
   "synchronization/internal/win32_waiter.h"
+  "synchronization/internal/win32_xp_waiter.cc"
   "synchronization/mutex.cc"
   "synchronization/mutex.h"
   "synchronization/notification.cc"
