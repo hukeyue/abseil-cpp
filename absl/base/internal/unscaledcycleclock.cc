@@ -19,7 +19,7 @@
 
 #if ABSL_USE_UNSCALED_CYCLECLOCK
 
-#if defined(_WIN32)
+#if defined(_MSC_VER)
 #include <intrin.h>
 #endif
 
