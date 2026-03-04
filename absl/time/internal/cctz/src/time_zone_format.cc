@@ -43,7 +43,7 @@
 #include <limits>
 #include <string>
 #include <vector>
-#if !defined(HAS_STRPTIME)
+#if !HAS_STRPTIME
 #include <iomanip>
 #include <sstream>
 #endif
@@ -69,7 +69,7 @@ bool isspace(char ch) {
   return std::isspace(static_cast<unsigned char>(ch)) != 0;
 }
 
-#if !defined(HAS_STRPTIME)
+#if !HAS_STRPTIME
 // Build a strptime() using C++11's std::get_time().
 char* strptime(const char* s, const char* fmt, std::tm* tm) {
   std::istringstream input(s);
