@@ -129,8 +129,13 @@ option(ABSL_BUILD_MONOLITHIC_SHARED_LIBS
   "Build Abseil as a single shared library (always enabled for Windows)"
   OFF
 )
-if(NOT BUILD_SHARED_LIBS AND ABSL_BUILD_MONOLITHIC_SHARED_LIBS)
-  message(WARNING "Not building a shared library because BUILD_SHARED_LIBS is not set. Ignoring ABSL_BUILD_MONOLITHIC_SHARED_LIBS.")
+
+option(ABSL_BUILD_SHARED_LIBS
+  "Build Abseil as shared library"
+  OFF
+)
+if(NOT ABSL_BUILD_SHARED_LIBS AND ABSL_BUILD_MONOLITHIC_SHARED_LIBS)
+  message(WARNING "Not building a shared library because ABSL_BUILD_SHARED_LIBS is not set. Ignoring ABSL_BUILD_MONOLITHIC_SHARED_LIBS.")
 endif()
 
 if((BUILD_TESTING AND ABSL_BUILD_TESTING) OR ABSL_BUILD_TEST_HELPERS)
