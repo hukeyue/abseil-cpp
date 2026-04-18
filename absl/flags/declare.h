@@ -63,7 +63,7 @@ ABSL_NAMESPACE_END
 // The non-MSVC implementation declares the flag twice. This is to allow
 // applying attributes to the second declaration. However, this causes a
 // compile error (C4273) in MSVC if a `__declspec` is prepended to the macro.
-#if defined(_MSC_VER)
+#if defined(_WIN32)
 #define ABSL_DECLARE_FLAG_INTERNAL(type, name) \
   extern absl::Flag<type> FLAGS_##name
 #else
