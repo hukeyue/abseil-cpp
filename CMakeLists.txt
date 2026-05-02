@@ -89,7 +89,16 @@ endif()
 
 # find dependencies
 ## pthread
+if (MINGW AND USE_LIBCXX)
+  set(THREADS_PREFER_PTHREAD_FLAG FALSE)
+  set(THREADS_HAVE_PTHREAD_ARG "OFF" CACHE STRING "")
+else()
+  set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+endif()
 find_package(Threads REQUIRED)
+if (MINGW AND USE_LIBCXX)
+  set_property(TARGET Threads::Threads PROPERTY INTERFACE_LINK_LIBRARIES "")
+endif()
 
 include(CMakeDependentOption)
 
