@@ -403,7 +403,7 @@ using FilePtr = std::unique_ptr<FILE, int (*)(FILE*)>;
 
 // fopen(3) adaptor for reading zoneinfo files (read-only binary mode).
 inline FilePtr FOpen(const char* path) {
-#if defined(_MSC_VER)
+#if defined(_WIN32)
   FILE* fp;
   if (fopen_s(&fp, path, "rb") != 0) fp = nullptr;
   return FilePtr(fp, fclose);
